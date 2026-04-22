@@ -36,4 +36,9 @@ public abstract class Pieza implements Movible {
     public void setColumnaActual(int columnaActual){
         this.columnaActual = columnaActual;
     }
+
+    @Override
+    public String toString(){
+        return this.getColor() + this.getColumnaActual() + this.getFilaActual();
+    }
 }
