@@ -1,7 +1,12 @@
 package piezas;
 
+import main.Tablero;
 import interfaces.Movible;
 
+/**
+ * Representa una pieza genérica de ajedrez.
+ * Esta clase sirve como base para todas las piezas específicas.
+ */
 public abstract class Pieza implements Movible {
     private String color;
     private int filaActual;
@@ -41,4 +46,7 @@ public abstract class Pieza implements Movible {
     public String toString(){
         return this.getColor() + this.getColumnaActual() + this.getFilaActual();
     }
+
+    @Override
+    public abstract boolean mover(int filaDestino, int columnaDestino, Tablero tablero);
 }
