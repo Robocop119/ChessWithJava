@@ -9,42 +9,42 @@ import interfaces.Movible;
  */
 public abstract class Pieza implements Movible {
     private String color;
-    private int filaActual;
-    private int columnaActual;
+    private int fila;
+    private int columna;
 
-    public Pieza(String color, int filaActual, int columnaActual){
+    public Pieza(String color, int fila, int columna){
         this.color = color;
-        this.filaActual = filaActual;
-        this.columnaActual = columnaActual;
+        this.fila = fila;
+        this.columna = columna;
     }
 
     public String getColor(){
         return this.color;
     }
 
-    public int getFilaActual(){
-        return this.filaActual;
+    public int getFila(){
+        return this.fila;
     }
 
-    public int getColumnaActual(){
-        return this.columnaActual;
+    public int getColumna(){
+        return this.columna;
     }
 
     public void setColor(String color){
         this.color = color;
     }
 
-    public void setFilaActual(int filaActual){
-        this.filaActual = filaActual;
+    public void setFila(int fila){
+        this.fila = fila;
     }
 
-    public void setColumnaActual(int columnaActual){
-        this.columnaActual = columnaActual;
+    public void setColumna(int columna){
+        this.columna = columna;
     }
 
     @Override
     public String toString(){
-        return this.getColor() + this.getColumnaActual() + this.getFilaActual();
+        return this.getColor() + this.getColumna() + this.getFila();
     }
 
     @Override
