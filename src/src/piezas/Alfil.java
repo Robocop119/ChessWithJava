@@ -26,4 +26,9 @@ public class Alfil extends Pieza {
 
         return false;
     }
+
+    @Override
+    public String toString() {
+        return getColor().equalsIgnoreCase("Blanco") ? "QB" : "QN";
+    }
 }
