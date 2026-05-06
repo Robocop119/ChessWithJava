@@ -19,4 +19,12 @@ public class Jugador {
     public String getColor() {
         return color;
     }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
 }
