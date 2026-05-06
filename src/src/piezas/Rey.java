@@ -17,6 +17,13 @@ public class Rey extends Pieza {
         int difColumna = Math.abs(columnaDestino - getColumna());
 
         if (difFila <= 1 && difColumna <= 1 && !(difFila == 0 && difColumna == 0)) {
+
+            // Comprobar que en el destino no haya una pieza del mismo color
+            Pieza piezaDestino = tablero.getTablero()[filaDestino][columnaDestino];
+            if (piezaDestino != null && piezaDestino.getColor().equalsIgnoreCase(this.getColor())) {
+                return false; // Fuego amigo
+            }
+
             setFila(filaDestino);
             setColumna(columnaDestino);
             return true;
