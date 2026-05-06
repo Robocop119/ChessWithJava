@@ -85,4 +85,12 @@ public class Juego {
         // Refinamiento: Cerrar el escáner al terminar el juego
         sc.close();
     }
+
+    /**
+     * Punto de entrada principal del programa.
+     */
+    public static void main(String[] args) {
+        Juego partida = new Juego();
+        partida.iniciar();
+    }
 }
