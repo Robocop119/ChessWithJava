@@ -20,6 +20,14 @@ public class Caballo extends Pieza {
         boolean movimientoL = (difFila == 2 && difColumna == 1) || (difFila == 1 && difColumna == 2);
 
         if (movimientoL) {
+
+            // El caballo puede saltar piezas, por lo que no comprobamos el camino.
+            // Solo debemos comprobar que en el destino no haya una pieza de nuestro propio color.
+            Pieza piezaDestino = tablero.getTablero()[filaDestino][columnaDestino];
+            if (piezaDestino != null && piezaDestino.getColor().equalsIgnoreCase(this.getColor())) {
+                return false; // Fuego amigo
+            }
+
             setFila(filaDestino);
             setColumna(columnaDestino);
             return true;
