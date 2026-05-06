@@ -12,7 +12,6 @@ import piezas.Alfil;
  * Clase que representa el tablero de ajedrez.
  * Se encarga de gestionar la disposición de las piezas y la visualización del estado del juego.
  */
-
 public class Tablero{
     /** Matriz de 8x8 que contiene las piezas del juego. */
     private Pieza[][] tablero;
@@ -60,13 +59,24 @@ public class Tablero{
      * Recorre la matriz e imprime la inicial de la pieza o un hueco vacío si no hay nada.
      */
     public void mostrarTablero(){
+        // Refinamiento: Imprimir números de columna como guía superior
+        System.out.print("   ");
+        for (int c = 0; c < tablero.length; c++) {
+            System.out.print(" " + c + "  ");
+        }
+        System.out.println();
+
         for(int i=0; i<tablero.length; i++){
+            // Refinamiento: Imprimir número de fila como guía lateral
+            System.out.print(i + " ");
+
             for(int j=0; j< tablero.length; j++){
                 if(tablero[i][j] != null){
                     System.out.print("[" + tablero[i][j].toString() + "]");
                 }
                 else{
-                    System.out.print("[ ]");
+                    // Refinamiento: Añadido un espacio vacío más para cuadrar con el formato de 2 letras
+                    System.out.print("[  ]");
                 }
             }
             System.out.println();
