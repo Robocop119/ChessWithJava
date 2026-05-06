@@ -20,18 +20,34 @@ public class Peon extends Pieza {
         int direccion = getColor().equalsIgnoreCase("Blanco") ? -1 : 1;
         int filaInicio = getColor().equalsIgnoreCase("Blanco") ? 6 : 1;
 
-        // Avance de 1 casilla
+        Pieza piezaDestino = tablero.getTablero()[filaDestino][columnaDestino];
+
+        // Avance de 1 casilla (comprobando que no haya nadie bloqueando)
         if (difColumna == 0 && difFila == direccion) {
-            setFila(filaDestino);
-            setColumna(columnaDestino);
-            return true;
+            if (piezaDestino == null) {
+                setFila(filaDestino);
+                setColumna(columnaDestino);
+                return true;
+            }
         }
 
-        // Avance inicial de 2 casillas
+        // Avance inicial de 2 casillas (comprobando destino e intermedio vacíos)
         if (difColumna == 0 && getFila() == filaInicio && difFila == 2 * direccion) {
-            setFila(filaDestino);
-            setColumna(columnaDestino);
-            return true;
+            Pieza piezaIntermedia = tablero.getTablero()[getFila() + direccion][getColumna()];
+            if (piezaDestino == null && piezaIntermedia == null) {
+                setFila(filaDestino);
+                setColumna(columnaDestino);
+                return true;
+            }
+        }
+
+        // Captura en diagonal (solo si hay una pieza enemiga)
+        if (difColumna == 1 && difFila == direccion) {
+            if (piezaDestino != null && !piezaDestino.getColor().equalsIgnoreCase(this.getColor())) {
+                setFila(filaDestino);
+                setColumna(columnaDestino);
+                return true;
+            }
         }
 
         return false;
